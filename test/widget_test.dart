@@ -13,4 +13,13 @@ void main() {
   test('Return sum of 2 nums when 2 comma separated numbers are given', () {
     expect(3, add('1,2'));
   });
+
+  test('Return sum of all numbers when multiple comma separated numbers are given', () {
+    expect(6, add('1,2,3'));
+    expect(10, add('1,2,3,4'));
+  });
+
+  test('Return the sum of numbers when new line is used instead of comma', () {
+    expect(6, add('1\n2,3'));
+  });
 }
