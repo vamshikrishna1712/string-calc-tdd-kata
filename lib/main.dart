@@ -21,6 +21,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
+int add(String numbers) {
+  return 0;
+}
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -31,6 +35,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  
   int _counter = 0;
 
   void _incrementCounter() {
