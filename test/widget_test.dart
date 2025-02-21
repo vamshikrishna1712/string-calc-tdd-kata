@@ -26,4 +26,28 @@ void main() {
   test('Return sum of numbers when custom delimiter is used. Delimiter is specified at the beginning of input', () {
     expect(3, add('//;\n1;2'));
   });
+
+  test('Should throw an exception with the list of negative numbers when negative numbers are provided', () {
+    final testCases = [
+      (input: '-1,-2', exceptionMessageContains: '-1,-2'),
+      (input: '1,-2', exceptionMessageContains: '-2'),
+      (input: '-1\n2,3', exceptionMessageContains: '-1'),
+      (input: '//*\n1*2*-3*-4', exceptionMessageContains: '-3,-4'),
+    ];
+
+    for (final testCase in testCases) {
+      try {
+        add(testCase.input);
+      } catch (e) {
+        expect(
+          e,
+          isA<NegativeNumberException>().having(
+            (exception) => exception.message,
+            'Exception message',
+            contains(testCase.exceptionMessageContains),
+          ),
+        );
+      }
+    }
+  });
 }

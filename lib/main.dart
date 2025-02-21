@@ -21,6 +21,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
+class NegativeNumberException implements Exception {
+  final String message;
+
+  NegativeNumberException(this.message);
+}
+
 int add(String numbers) {
   if (numbers.isEmpty) {
     return 0;
