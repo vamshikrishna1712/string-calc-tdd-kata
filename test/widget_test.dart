@@ -9,4 +9,8 @@ void main() {
   test('Return input integer when single number is given', () {
     expect(1, add('1'));
   });
+
+  test('Return sum of 2 nums when 2 comma separated numbers are given', () {
+    expect(3, add('1,2'));
+  });
 }
